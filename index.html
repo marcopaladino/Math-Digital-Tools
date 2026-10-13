@@ -112,7 +112,7 @@
       border: none;
     }
 
-    /* Tab 6: Native Translate Styling */
+    /* Native Translate Styling */
     #translate-panel {
       background-color: #f1f3f4;
       padding: 24px;
@@ -179,28 +179,23 @@
 
   <!-- Top Tab Bar -->
   <div class="tab-bar notranslate">
-    <button class="tab-button active" onclick="switchTab(0)">Home</button>
-    <button class="tab-button" onclick="switchTab(1)">Vault Vretta</button>
-    <button class="tab-button" onclick="switchTab(2)">Scientific Calculator</button>
-    <button class="tab-button" onclick="switchTab(3)">Graphing Calculator</button>
-    <button class="tab-button" onclick="switchTab(4)">Polypad</button>
-    <button class="tab-button" onclick="switchTab(5)">GeoGebra</button>
-    <button class="tab-button" onclick="switchTab(6)">Translate 🟢</button>
+    <button class="tab-button active" onclick="switchTab(0)">Vault Vretta</button>
+    <button class="tab-button" onclick="switchTab(1)">Scientific Calculator</button>
+    <button class="tab-button" onclick="switchTab(2)">Graphing Calculator</button>
+    <button class="tab-button" onclick="switchTab(3)">Polypad</button>
+    <button class="tab-button" onclick="switchTab(4)">GeoGebra</button>
+    <button class="tab-button" onclick="switchTab(5)">Translate 🟢</button>
   </div>
 
   <!-- Content Panels -->
   <div class="tab-content-container">
-    <!-- Tab 0: Home -->
+    
+    <!-- Tab 0: Vault Vretta -->
     <div class="tab-panel active">
-      <iframe class="standard-iframe" src="https://sites.google.com/ocdsb.ca/yourpagetitle/home"></iframe>
-    </div>
-
-    <!-- Tab 1: Vault Vretta -->
-    <div class="tab-panel">
       <iframe class="standard-iframe" src="https://vault.vretta.com/#/en/login-student"></iframe>
     </div>
 
-    <!-- Tab 2: Cropped Desmos Scientific Calculator -->
+    <!-- Tab 1: Cropped Desmos Scientific Calculator -->
     <div class="tab-panel">
       <div class="instruction-banner">
         If needed, the <strong>wrench 🔧</strong> icon on the calculator can be used to increase the font size.
@@ -214,7 +209,7 @@
       </div>
     </div>
 
-    <!-- Tab 3: Desmos Graphing Calculator -->
+    <!-- Tab 2: Desmos Graphing Calculator -->
     <div class="tab-panel">
       <div class="instruction-banner">
         If needed, the <strong>wrench 🔧</strong> icon on the calculator can be used to increase the font size.
@@ -227,7 +222,7 @@
       </iframe>
     </div>
 
-    <!-- Tab 4: Amplify Polypad Direct Embed -->
+    <!-- Tab 3: Amplify Polypad Direct Embed -->
     <div class="tab-panel">
       <div class="instruction-banner">
         🔓 Select <strong>"Continue without signing in"</strong> and then <strong>type your name</strong>.
@@ -239,7 +234,7 @@
       </iframe>
     </div>
 
-    <!-- Tab 5: GeoGebra Direct Embed -->
+    <!-- Tab 4: GeoGebra Direct Embed -->
     <div class="tab-panel">
       <iframe 
         class="standard-iframe" 
@@ -249,7 +244,7 @@
       </iframe>
     </div>
 
-    <!-- Tab 6: Native Translate Tool -->
+    <!-- Tab 5: Native Translate Tool -->
     <div class="tab-panel" id="translate-panel">
       <div class="translate-container">
         <div class="translate-header">
