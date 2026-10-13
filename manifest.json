@@ -1,6 +1,6 @@
 {
   "name": "Math Digital Tools",
-  "short_name": "Math Digital Tools",
+  "short_name": "Math-Digital-Tools",
   "start_url": "./index.html",
   "display": "standalone",
   "display_override": ["tabbed"],
