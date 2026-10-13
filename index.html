@@ -10,7 +10,11 @@
     * { margin: 0; padding: 0; box-sizing: border-box; }
     html, body { width: 100%; height: 100%; overflow: hidden; font-family: system-ui, -apple-system, sans-serif; background: #202124; }
     
-    /* Custom Top Tab Bar */
+    /* Prevent Google Translate from displacing the UI */
+    .goog-te-banner-frame.skiptranslate { display: none !important; }
+    body { top: 0px !important; }
+
+    /* Custom Top Tab Bar (Protected from Translation) */
     .tab-bar {
       display: flex;
       background: #292a2d;
@@ -68,6 +72,9 @@
       background-color: #f8f9fa;
       color: #202124;
       border-bottom: 1px solid #dadce0;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
 
     /* Iframe Cropping Wrapper */
@@ -80,10 +87,10 @@
 
     .desmos-crop-container iframe {
       position: absolute;
-      top: -55px; /* Crops top header bar */
+      top: -55px;
       left: 0;
       width: 100%;
-      height: calc(100% + 95px); /* Extends height to push footer off-screen */
+      height: calc(100% + 95px);
       border: none;
     }
 
@@ -92,19 +99,81 @@
       flex: 1;
       border: none;
     }
+
+    /* Tab 6: Native Translate Styling */
+    #translate-panel {
+      background-color: #f1f3f4;
+      padding: 24px;
+      align-items: center;
+      justify-content: flex-start;
+      overflow-y: auto;
+    }
+
+    .translate-container {
+      width: 100%;
+      max-width: 1100px;
+      background-color: #ffffff;
+      border-radius: 8px;
+      box-shadow: 0 1px 3px rgba(60,64,67,0.3), 0 4px 8px rgba(60,64,67,0.15);
+      padding: 24px;
+      box-sizing: border-box;
+    }
+
+    .translate-header {
+      margin-bottom: 15px;
+      border-bottom: 1px solid #eee;
+      padding-bottom: 10px;
+    }
+
+    .translate-instructions {
+      font-size: 18px;
+      color: #3c4043;
+      margin-bottom: 10px;
+    }
+
+    #google_translate_element {
+      margin-top: 10px;
+      min-height: 40px;
+    }
+
+    .editable-box {
+      width: 100%;
+      height: 380px;
+      padding: 15px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 20px;
+      overflow-y: auto;
+      background-color: white;
+      box-sizing: border-box;
+      font-family: inherit;
+    }
+
+    .editable-box:focus {
+      outline: none;
+      border-color: #4285f4;
+      box-shadow: 0 0 5px rgba(66, 133, 244, 0.3);
+    }
+
+    .editable-box:empty:before {
+      content: attr(placeholder);
+      color: #757575;
+      pointer-events: none;
+      display: block;
+    }
   </style>
 </head>
 <body>
 
   <!-- Top Tab Bar -->
-  <div class="tab-bar">
+  <div class="tab-bar notranslate">
     <button class="tab-button active" onclick="switchTab(0)">Home</button>
     <button class="tab-button" onclick="switchTab(1)">Vault Vretta</button>
     <button class="tab-button" onclick="switchTab(2)">Scientific Calculator</button>
     <button class="tab-button" onclick="switchTab(3)">Graphing Calculator</button>
     <button class="tab-button" onclick="switchTab(4)">Polypad</button>
     <button class="tab-button" onclick="switchTab(5)">GeoGebra</button>
-    <button class="tab-button" onclick="switchTab(6)">Translate</button>
+    <button class="tab-button" onclick="switchTab(6)">Translate 🟢</button>
   </div>
 
   <!-- Content Panels -->
@@ -146,21 +215,49 @@
       </iframe>
     </div>
 
-    <!-- Tab 4: Polypad -->
+    <!-- Tab 4: Amplify Polypad Direct Embed -->
     <div class="tab-panel">
-      <iframe class="standard-iframe" src="https://sites.google.com/ocdsb.ca/polypad"></iframe>
+      <div class="instruction-banner">
+        🔓 Select <strong>"Continue without signing in"</strong> and then <strong>type your name</strong>.
+      </div>
+      <iframe 
+        class="standard-iframe" 
+        src="https://student.amplify.com/join/#/378MGK" 
+        allowfullscreen>
+      </iframe>
     </div>
 
-    <!-- Tab 5: GeoGebra -->
+    <!-- Tab 5: GeoGebra Direct Embed -->
     <div class="tab-panel">
-      <iframe class="standard-iframe" src="https://sites.google.com/ocdsb.ca/geogebra"></iframe>
+      <iframe 
+        class="standard-iframe" 
+        src="https://www.geogebra.org/calculator" 
+        title="GeoGebra Calculator" 
+        allowfullscreen>
+      </iframe>
     </div>
 
-    <!-- Tab 6: Translate -->
-    <div class="tab-panel">
-      <iframe class="standard-iframe" src="https://sites.google.com/ocdsb.ca/translategreen/translate"></iframe>
+    <!-- Tab 6: Native Translate Tool -->
+    <div class="tab-panel" id="translate-panel">
+      <div class="translate-container">
+        <div class="translate-header">
+          <div class="translate-instructions">
+            Write your text below, then use the menu to translate.
+          </div>
+          <div id="google_translate_element">Loading Translator...</div>
+        </div>
+        <div class="editable-box" contenteditable="true" placeholder="Type your text here..."></div>
+      </div>
     </div>
   </div>
+
+  <!-- Google Translate Integration Script -->
+  <script type="text/javascript">
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({ pageLanguage: 'en' }, 'google_translate_element');
+    }
+  </script>
+  <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
   <script>
     // Switch visible tab and panel
