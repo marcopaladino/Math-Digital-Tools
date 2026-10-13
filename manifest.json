@@ -1,6 +1,6 @@
 {
-  "name": "Kiosk Multi-Tab PWA",
-  "short_name": "KioskTabs",
+  "name": "Math Digital Tools",
+  "short_name": "Math Digital Tools",
   "start_url": "./index.html",
   "display": "standalone",
   "display_override": ["tabbed"],
