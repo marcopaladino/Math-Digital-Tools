@@ -182,24 +182,18 @@
 
   <!-- Top Tab Bar -->
   <div class="tab-bar notranslate">
-    <button class="tab-button active" onclick="switchTab(0)">Vault Vretta</button>
-    <button class="tab-button" onclick="switchTab(1)">Scientific Calculator</button>
-    <button class="tab-button" onclick="switchTab(2)">Graphing Calculator</button>
-    <button class="tab-button" onclick="switchTab(3)">Polypad</button>
-    <button class="tab-button" onclick="switchTab(4)">GeoGebra</button>
-    <button class="tab-button" onclick="switchTab(5)">Translate 🟢</button>
+    <button class="tab-button active" onclick="switchTab(0)">Scientific Calculator</button>
+    <button class="tab-button" onclick="switchTab(1)">Graphing Calculator</button>
+    <button class="tab-button" onclick="switchTab(2)">Polypad</button>
+    <button class="tab-button" onclick="switchTab(3)">GeoGebra</button>
+    <button class="tab-button" onclick="switchTab(4)">Translate 🟢</button>
   </div>
 
   <!-- Content Panels -->
   <div class="tab-content-container">
     
-    <!-- Tab 0: Vault Vretta -->
+    <!-- Tab 0: Cropped Desmos Scientific Calculator -->
     <div class="tab-panel active">
-      <iframe class="standard-iframe" src="https://vault.vretta.com/#/en/login-student"></iframe>
-    </div>
-
-    <!-- Tab 1: Cropped Desmos Scientific Calculator -->
-    <div class="tab-panel">
       <div class="instruction-banner">
         If needed, the <strong>wrench 🔧</strong> icon on the calculator can be used to increase the font size.
       </div>
@@ -212,32 +206,34 @@
       </div>
     </div>
 
-    <!-- Tab 2: Desmos Graphing Calculator -->
+    <!-- Tab 1: Desmos Graphing Calculator -->
     <div class="tab-panel">
       <div class="instruction-banner">
         If needed, the <strong>wrench 🔧</strong> icon on the calculator can be used to increase the font size.
       </div>
-      <iframe 
-        class="standard-iframe" 
-        src="https://www.desmos.com/testing/newhampshire/graphing" 
-        title="Desmos Graphing Calculator" 
-        allowfullscreen>
-      </iframe>
+      <div class="desmos-crop-container">
+        <iframe 
+          src="https://www.desmos.com/testing/newhampshire/graphing" 
+          title="Desmos Graphing Calculator" 
+          allowfullscreen>
+        </iframe>
+      </div>
     </div>
 
-    <!-- Tab 3: Amplify Polypad Direct Embed -->
+    <!-- Tab 2: Amplify Polypad Direct Embed -->
     <div class="tab-panel">
       <div class="instruction-banner">
         🔓 Select <strong>"Continue without signing in"</strong> and then <strong>type your name</strong>.
       </div>
-      <iframe 
-        class="standard-iframe" 
-        src="https://student.amplify.com/join/#/378MGK" 
-        allowfullscreen>
-      </iframe>
+      <div class="desmos-crop-container">
+        <iframe 
+          src="https://student.amplify.com/join/#/378MGK" 
+          allowfullscreen>
+        </iframe>
+      </div>
     </div>
 
-    <!-- Tab 4: GeoGebra Direct Embed -->
+    <!-- Tab 3: GeoGebra Direct Embed -->
     <div class="tab-panel">
       <iframe 
         class="standard-iframe" 
@@ -247,7 +243,7 @@
       </iframe>
     </div>
 
-    <!-- Tab 5: Native Translate Tool -->
+    <!-- Tab 4: Native Translate Tool -->
     <div class="tab-panel" id="translate-panel">
       <div class="translate-container">
         <div class="translate-header">
